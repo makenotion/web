@@ -40,11 +40,11 @@
     "build/src/**"
   ],
   "dependencies": {
-    "@types/node-fetch": "^2.5.10",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "@types/jest": "^28.1.4",
+    "@types/node-fetch": "^2.5.10",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
     "cspell": "^5.4.1",
