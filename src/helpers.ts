@@ -3,6 +3,7 @@ import {
   CommentObjectResponse,
   DatabaseObjectResponse,
   EquationRichTextItemResponse,
+  MentionRichTtextItemResponse,
   PageObjectResponse,
   PartialBlockObjectResponse,
   PartialCommentObjectResponse,
@@ -194,6 +195,6 @@ export function isEquationRichTextItemResponse(
  */
 export function isMentionRichTextItemResponse(
   richText: RichTextItemResponse
-): richText is EquationRichTextItemResponse {
+): richText is MentionRichTtextItemResponse {
   return richText.type === "mention"
 }
