@@ -35,13 +35,13 @@ To use this example on your machine, clone the repo and move into your local cop
 
 ```zsh
 git clone https://github.com/makenotion/notion-sdk-js.git
-cd /notion-sdk-js
+cd notion-sdk-js
 ```
 
 Next, move into this example in the `/examples` directory, and install its dependencies:
 
 ```zsh
-cd /examples/intro-to-notion-api
+cd examples/intro-to-notion-api
 npm install
 ```
 
