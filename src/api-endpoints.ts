@@ -739,7 +739,7 @@ type VerificationPropertyResponse = {
     | null
 }
 
-type AnnotationResponse = {
+export type AnnotationResponse = {
   bold: boolean
   italic: boolean
   strikethrough: boolean
