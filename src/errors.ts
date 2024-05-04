@@ -1,4 +1,3 @@
-import { SupportedResponse } from "./fetch-types"
 import { isObject } from "./utils"
 import { Assert } from "./type-utils"
 
@@ -125,14 +124,14 @@ class HTTPResponseError<
   readonly name: string = "HTTPResponseError"
   readonly code: Code
   readonly status: number
-  readonly headers: SupportedResponse["headers"]
+  readonly headers: Headers
   readonly body: string
 
   constructor(args: {
     code: Code
     status: number
     message: string
-    headers: SupportedResponse["headers"]
+    headers: Headers
     rawBodyText: string
   }) {
     super(args.message)
@@ -184,7 +183,7 @@ export class UnknownHTTPResponseError extends HTTPResponseError<ClientErrorCode.
   constructor(args: {
     status: number
     message: string | undefined
-    headers: SupportedResponse["headers"]
+    headers: Headers
     rawBodyText: string
   }) {
     super({
@@ -232,7 +231,7 @@ export class APIResponseError extends HTTPResponseError<APIErrorCode> {
 }
 
 export function buildRequestError(
-  response: SupportedResponse,
+  response: Response,
   bodyText: string
 ): APIResponseError | UnknownHTTPResponseError {
   const apiErrorResponseBody = parseAPIErrorResponseBody(bodyText)

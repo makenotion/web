@@ -3,7 +3,7 @@
   "version": "2.2.15",
   "description": "A simple and easy to use client for the Notion API",
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   },
   "homepage": "https://developers.notion.com/docs/getting-started",
   "bugs": {
@@ -39,10 +39,6 @@
     "build/package.json",
     "build/src/**"
   ],
-  "dependencies": {
-    "@types/node-fetch": "^2.5.10",
-    "node-fetch": "^2.6.1"
-  },
   "devDependencies": {
     "@types/jest": "^28.1.4",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
