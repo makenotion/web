@@ -166,7 +166,7 @@ export default class Client {
     const url = new URL(`${this.#prefixUrl}${path}`)
     if (query) {
       for (const [key, value] of Object.entries(query)) {
-        if (value !== undefined) {
+        if (value !== undefined && value !== null) {
           if (Array.isArray(value)) {
             value.forEach(val =>
               url.searchParams.append(key, decodeURIComponent(val))
@@ -615,6 +615,8 @@ export default class Client {
  * Type aliases to support the generic request interface.
  */
 type Method = "get" | "post" | "patch" | "delete"
-type QueryParams = Record<string, string | number | string[]> | URLSearchParams
+type QueryParams =
+  | Record<string, string | number | string[] | null>
+  | URLSearchParams
 
 type WithAuth<P> = P & { auth?: string }
