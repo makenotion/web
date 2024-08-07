@@ -1,3 +1,9 @@
+export type {
+  EquationRichTextItemResponse,
+  MentionRichTextItemResponse,
+  RichTextItemResponse,
+  TextRichTextItemResponse,
+} from "./api-endpoints"
 export { default as Client } from "./Client"
 export { LogLevel, Logger } from "./logging"
 export {
