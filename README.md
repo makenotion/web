@@ -1,3 +1,5 @@
+[![Open in DevZero](https://assets.devzero.io/open-in-devzero.svg)](https://www.devzero.io/dashboard/recipes/new?repo-url=https://github.com/makenotion/notion-sdk-js)
+
 <div align="center">
 	<h1>Notion SDK for JavaScript</h1>
 	<p>
