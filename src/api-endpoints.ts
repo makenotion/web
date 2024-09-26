@@ -11279,163 +11279,169 @@ export const listDatabases = {
   path: (): string => `databases`,
 } as const
 
+export type CreateDatabaseBodyPropertiesParameters =
+  | {
+      number: {
+        format?: NumberFormat
+      }
+      type?: "number"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      formula: {
+        expression?: string
+      }
+      type?: "formula"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      select: {
+        options?: Array<{
+          name: StringRequest
+          color?: SelectColor
+          description?: StringRequest | null
+        }>
+      }
+      type?: "select"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      multi_select: {
+        options?: Array<{
+          name: StringRequest
+          color?: SelectColor
+          description?: StringRequest | null
+        }>
+      }
+      type?: "multi_select"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      relation:
+        | {
+            single_property: EmptyObject
+            database_id: IdRequest
+            type?: "single_property"
+          }
+        | {
+            dual_property: Record<string, never>
+            database_id: IdRequest
+            type?: "dual_property"
+          }
+      type?: "relation"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      rollup:
+        | {
+            rollup_property_name: string
+            relation_property_name: string
+            function: RollupFunction
+            rollup_property_id?: string
+            relation_property_id?: string
+          }
+        | {
+            rollup_property_name: string
+            relation_property_id: string
+            function: RollupFunction
+            relation_property_name?: string
+            rollup_property_id?: string
+          }
+        | {
+            relation_property_name: string
+            rollup_property_id: string
+            function: RollupFunction
+            rollup_property_name?: string
+            relation_property_id?: string
+          }
+        | {
+            rollup_property_id: string
+            relation_property_id: string
+            function: RollupFunction
+            rollup_property_name?: string
+            relation_property_name?: string
+          }
+      type?: "rollup"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      unique_id: {
+        prefix?: string | null
+      }
+      type?: "unique_id"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      title: EmptyObject
+      type?: "title"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      rich_text: EmptyObject
+      type?: "rich_text"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      url: EmptyObject
+      type?: "url"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      people: EmptyObject
+      type?: "people"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      files: EmptyObject
+      type?: "files"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      email: EmptyObject
+      type?: "email"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      phone_number: EmptyObject
+      type?: "phone_number"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      date: EmptyObject
+      type?: "date"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      checkbox: EmptyObject
+      type?: "checkbox"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      created_by: EmptyObject
+      type?: "created_by"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      created_time: EmptyObject
+      type?: "created_time"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      last_edited_by: EmptyObject
+      type?: "last_edited_by"
+      description?: PropertyDescriptionRequest | null
+    }
+  | {
+      last_edited_time: EmptyObject
+      type?: "last_edited_time"
+      description?: PropertyDescriptionRequest | null
+    }
+
 type CreateDatabaseBodyParameters = {
   parent:
     | { page_id: IdRequest; type?: "page_id" }
     | { database_id: IdRequest; type?: "database_id" }
-  properties: Record<
-    string,
-    | {
-        number: { format?: NumberFormat }
-        type?: "number"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        formula: { expression?: string }
-        type?: "formula"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        select: {
-          options?: Array<{
-            name: StringRequest
-            color?: SelectColor
-            description?: StringRequest | null
-          }>
-        }
-        type?: "select"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        multi_select: {
-          options?: Array<{
-            name: StringRequest
-            color?: SelectColor
-            description?: StringRequest | null
-          }>
-        }
-        type?: "multi_select"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        relation:
-          | {
-              single_property: EmptyObject
-              database_id: IdRequest
-              type?: "single_property"
-            }
-          | {
-              dual_property: Record<string, never>
-              database_id: IdRequest
-              type?: "dual_property"
-            }
-        type?: "relation"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        rollup:
-          | {
-              rollup_property_name: string
-              relation_property_name: string
-              function: RollupFunction
-              rollup_property_id?: string
-              relation_property_id?: string
-            }
-          | {
-              rollup_property_name: string
-              relation_property_id: string
-              function: RollupFunction
-              relation_property_name?: string
-              rollup_property_id?: string
-            }
-          | {
-              relation_property_name: string
-              rollup_property_id: string
-              function: RollupFunction
-              rollup_property_name?: string
-              relation_property_id?: string
-            }
-          | {
-              rollup_property_id: string
-              relation_property_id: string
-              function: RollupFunction
-              rollup_property_name?: string
-              relation_property_name?: string
-            }
-        type?: "rollup"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        unique_id: { prefix?: string | null }
-        type?: "unique_id"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        title: EmptyObject
-        type?: "title"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        rich_text: EmptyObject
-        type?: "rich_text"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        url: EmptyObject
-        type?: "url"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        people: EmptyObject
-        type?: "people"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        files: EmptyObject
-        type?: "files"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        email: EmptyObject
-        type?: "email"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        phone_number: EmptyObject
-        type?: "phone_number"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        date: EmptyObject
-        type?: "date"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        checkbox: EmptyObject
-        type?: "checkbox"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        created_by: EmptyObject
-        type?: "created_by"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        created_time: EmptyObject
-        type?: "created_time"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        last_edited_by: EmptyObject
-        type?: "last_edited_by"
-        description?: PropertyDescriptionRequest | null
-      }
-    | {
-        last_edited_time: EmptyObject
-        type?: "last_edited_time"
-        description?: PropertyDescriptionRequest | null
-      }
-  >
+  properties: Record<string, CreateDatabaseBodyPropertiesParameters>
   icon?:
     | { emoji: EmojiRequest; type?: "emoji" }
     | null
