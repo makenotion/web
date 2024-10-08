@@ -11582,6 +11582,7 @@ export type OauthTokenResponse = {
       }
     | { type: "workspace"; workspace: true }
   duplicated_template_id: string | null
+  request_id: string
 }
 
 export const oauthToken = {
