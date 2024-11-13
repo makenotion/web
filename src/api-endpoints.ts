@@ -4512,6 +4512,11 @@ type EmojiRequest =
   | "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
   | "🏴󠁧󠁢󠁳󠁣󠁴󠁿"
   | "🏴󠁧󠁢󠁷󠁬󠁳󠁿"
+type CustomEmojiRequest = {
+    id: string;
+    name: string;
+    url: string;
+}
 
 export type PageObjectResponse = {
   parent:
@@ -4672,6 +4677,8 @@ export type PageObjectResponse = {
     | { type: "external"; external: { url: TextRequest } }
     | null
     | { type: "file"; file: { url: string; expiry_time: string } }
+    | null
+    | { type: "custom_emoji"; emoji: CustomEmojiRequest }
     | null
   cover:
     | { type: "external"; external: { url: TextRequest } }
@@ -4990,6 +4997,8 @@ export type DatabaseObjectResponse = {
     | { type: "external"; external: { url: TextRequest } }
     | null
     | { type: "file"; file: { url: string; expiry_time: string } }
+    | null
+    | { type: "custom_emoji"; emoji: CustomEmojiRequest }
     | null
   cover:
     | { type: "external"; external: { url: TextRequest } }
@@ -5450,6 +5459,8 @@ export type CalloutBlockObjectResponse = {
       | { type: "external"; external: { url: TextRequest } }
       | null
       | { type: "file"; file: { url: string; expiry_time: string } }
+      | null
+      | { type: "custom_emoji"; emoji: CustomEmojiRequest }
       | null
   }
   parent:
