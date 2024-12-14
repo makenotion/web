@@ -756,6 +756,7 @@ type AnnotationResponse = {
     | "purple"
     | "pink"
     | "red"
+    | "default_background"
     | "gray_background"
     | "brown_background"
     | "orange_background"
