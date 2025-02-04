@@ -10,6 +10,7 @@
 [![npm version](https://badge.fury.io/js/%40notionhq%2Fclient.svg)](https://www.npmjs.com/package/@notionhq/client)
 
 ## Installation
+[![Open Val Town Template](https://stevekrouse-badge.web.val.run/?3)](https://www.val.town/v/charmaine/NotionJsSDK)
 
 ```
 npm install @notionhq/client
