@@ -1,0 +1,31 @@
+{
+  "name": "notion-github-project-issues-sync",
+  "version": "1.0.0",
+  "description": "Sync GitHub Project issues with Notion.",
+  "main": "index.js",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": ""
+  },
+  "contributors": [
+    {
+      "name": "André Pedralho",
+      "email": "andre.pedralho@gmail.com"
+    },
+    {
+      "name": "Aman Gupta"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@notionhq/client": "file:../../",
+    "@octokit/graphql": "^5.0.4",
+    "@octokit/plugin-paginate-graphql": "^2.0.1",
+    "dotenv": "^16.0.1",
+    "lodash": "^4.17.21",
+    "octokit": "^2.0.3"
+  }
+}
